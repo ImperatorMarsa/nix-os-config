@@ -107,7 +107,7 @@
     # Be sure to change it (using passwd) after rebooting!
     isNormalUser = true;
     description = "Timofey";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
     packages = with pkgs; [];
     openssh.authorizedKeys.keys = [
       # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
@@ -121,6 +121,7 @@
   environment.systemPackages = with pkgs; [
     vim
     git
+    tmux
     wget
   ];
 
@@ -143,6 +144,14 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+
+  security.polkit.enable = true;
+
+  # enabling OpenGL support
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+  };
 
   # List services that you want to enable:
 

@@ -43,6 +43,14 @@
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
 
+  wayland.windowManager.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+    config = rec {
+      modifier = "Mod4";
+    };
+  };
+
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
