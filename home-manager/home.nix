@@ -2,6 +2,20 @@
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 
 { inputs, lib, config, pkgs, ... }: {
+  # Home Manager needs a bit of information about you and the paths it should
+  # manage.
+
+  # Lang
+  home.language = let
+      en = "en_US.UTF-8";
+      ru = "ru_RU.UTF-8";
+  in {
+      base     = en;
+      time     = en;
+      paper    = ru;
+      address  = ru;
+      monetary = ru;
+  };
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
@@ -9,6 +23,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
+    ./programs/programs.nix
   ];
 
   nixpkgs = {
@@ -39,6 +54,75 @@
     homeDirectory = "/home/timofey";
   };
 
+  home.packages = [
+    # # Adds the 'hello' command to your environment. It prints a friendly
+    # # "Hello, world!" when run.
+    # pkgs.hello
+
+    # # It is sometimes useful to fine-tune packages, for example, by applying
+    # # overrides. You can do that directly here, just don't forget the
+    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
+    # # fonts?
+    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+
+    # # You can also create simple shell scripts directly inside your
+    # # configuration. For example, this adds a command 'my-hello' to your
+    # # environment:
+    # (pkgs.writeShellScriptBin "my-hello" ''
+    #   echo "Hello, ${config.home.username}!"
+    # '')
+
+    # cli tools
+    pkgs.vim
+    pkgs.bat
+    pkgs.pfetch
+
+    # security
+    pkgs.keepassxc
+
+    # utils
+    pkgs.fzf
+    pkgs.btop
+    pkgs.wofi
+    pkgs.waybar
+    pkgs.zellij
+    pkgs.du-dust
+    pkgs.wezterm
+    pkgs.swaylock
+    pkgs.glibcLocales
+    pkgs.any-nix-shell
+
+    # internet
+    pkgs.telegram-desktop
+
+    # fonts
+    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    pkgs.font-awesome
+    pkgs.jetbrains-mono
+
+    # pkgs.wezterm # ne mogu ponyat v chem problema. ustanovlyu cherez defoltniy manager paketov
+  ];
+
+  home.file = {
+    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
+    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
+    # # symlink to the Nix store copy.
+    # ".screenrc".source = dotfiles/screenrc;
+
+    # # You can also set the file content immediately.
+    # ".gradle/gradle.properties".text = ''
+    #   org.gradle.console=verbose
+    #   org.gradle.daemon.idletimeout=3600000
+    # '';
+    ".vimrc".source           = ./configs/vim/vimrc;
+    ".config/lsd".source      = ./configs/lsd;
+    ".config/sway".source     = ./configs/sway;
+    ".config/waybar".source   = ./configs/waybar;
+    ".config/wezterm".source  = ./configs/wezterm;
+    ".config/swaylock".source = ./configs/swaylock;
+  };
+
+
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
@@ -51,12 +135,22 @@
     };
   };
 
-  # Enable home-manager and git
-  programs.home-manager.enable = true;
-  programs.git.enable = true;
+  home.sessionVariables = {
+    EDITOR = "vim";
+    LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
+    LANG = "en_US.UTF-8";
+    LC_CTYPE = "en_US.UTF-8";
+    LC_ALL = "en_US.UTF-8";
+    PAGER = "less -FirSwX";
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
+
+
+  # Enable home-manager and git
+  programs.home-manager.enable = true;
+  programs.git.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";
