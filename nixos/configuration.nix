@@ -83,6 +83,9 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Enable SShH-agent
+  programs.ssh.startAgent = true;
+
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
 
