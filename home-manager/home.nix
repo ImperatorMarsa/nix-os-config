@@ -93,6 +93,7 @@
     pkgs.any-nix-shell
 
     # internet
+    pkgs.yandex-disk
     pkgs.telegram-desktop
 
     # fonts
