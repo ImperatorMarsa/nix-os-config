@@ -1,9 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nur, ... }:
 
-let
-  nurpkgs = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") { inherit pkgs; };
-in
 {
+  nixpkgs.overlays = [ nur.overlay ];
   programs.firefox = {
     enable = true;
     profiles = {
@@ -11,7 +9,7 @@ in
         id = 0;
         name = "defualt";
         isDefault = true;
-        extensions = with nurpkgs.repos.rycee.firefox-addons; [
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           stylus
           vimium
           ublock-origin

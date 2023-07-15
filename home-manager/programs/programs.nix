@@ -7,7 +7,7 @@
     ./tmux/tmux.nix
     ./fish/fish.nix
     ./zoxide/zoxide.nix
-    #__ ./firefox/firefox.nix
+    ./firefox/firefox.nix
     ./lazygit/lazygit.nix
   ];
 
