@@ -83,14 +83,17 @@
     # utils
     pkgs.fzf
     pkgs.btop
-    pkgs.wofi
-    pkgs.waybar
+    pkgs.gping
     pkgs.zellij
     pkgs.du-dust
     pkgs.wezterm
-    pkgs.swaylock
     pkgs.glibcLocales
     pkgs.any-nix-shell
+
+    # desktop
+    pkgs.wofi
+    pkgs.waybar
+    pkgs.swaylock
 
     # internet
     pkgs.yandex-disk
