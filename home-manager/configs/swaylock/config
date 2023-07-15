@@ -3,7 +3,7 @@
 #
 # Image path supports environment variables and shell expansions,
 # e.g. image=$HOME/Pictures/default.png
-image=/usr/share/backgrounds/dracula-waves-44475a.png
+image=/home/timofey/nix-os-config/home-manager/wallpapers/dracula-waves-44475a.png
 scaling=fill
 
 color=282a36
