@@ -10,9 +10,12 @@
     plugins = [ {
       plugin = pkgs.tmuxPlugins.dracula;
       extraConfig = ''
+        set -g @dracula-show-left-sep 
+        set -g @dracula-show-right-sep 
+        set -g @dracula-show-flags true
         set -g @dracula-show-powerline true
         set -g @dracula-show-left-icon session
-        set -g @dracula-plugins "cpu-usage ram-usage"
+        set -g @dracula-plugins "cpu-usage ram-usage battery"
       '';
     } ];
   };
