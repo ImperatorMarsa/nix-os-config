@@ -13,6 +13,9 @@
     nur.url = "github:nix-community/NUR";
     nur.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Hardware support
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
 
@@ -21,7 +24,7 @@
     # nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { nixpkgs, home-manager, nur, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, nur, nixos-hardware, ... }@inputs: {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#think-nix'
     nixosConfigurations = {
@@ -29,7 +32,10 @@
       think-nix = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         # > Our main nixos configuration file <
-        modules = [ ./nixos/configuration.nix ];
+        modules = [
+          nixos-hardware.nixosModules.lenovo-thinkpad-x220
+          ./nixos/configuration.nix
+        ];
       };
     };
 
