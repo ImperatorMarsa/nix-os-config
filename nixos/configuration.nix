@@ -50,6 +50,12 @@
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
     };
+
+    gc = {
+      dates = "weekly";
+      automatic = true;
+      options = "--delete-older-than 8d";
+    };
   };
 
   # FIXME: Add the rest of your current configuration
