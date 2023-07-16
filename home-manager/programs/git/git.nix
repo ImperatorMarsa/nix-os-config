@@ -5,6 +5,10 @@
     enable = true;
     userName  = "Timofey Sitnikov";
     userEmail = "tima.sitnikov@mail.ru";
+    extraConfig = {
+      merge.conflictstyle = "diff3";
+      pull.rebase = true;
+    };
     delta = {
       enable = true;
       options = {
