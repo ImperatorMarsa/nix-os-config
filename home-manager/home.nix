@@ -89,6 +89,8 @@
     pkgs.wezterm
     pkgs.glibcLocales
     pkgs.any-nix-shell
+    pkgs.brightnessctl
+    pkgs.pulseaudioFull
 
     # desktop
     pkgs.wofi
