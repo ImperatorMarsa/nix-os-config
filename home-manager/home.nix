@@ -75,30 +75,31 @@
     # cli tools
     pkgs.vim
     pkgs.bat
+    pkgs.fzf
+    pkgs.btop
+    pkgs.gping
     pkgs.pfetch
+    pkgs.zellij
+    pkgs.brightnessctl
 
     # security
     pkgs.keepassxc
 
     # utils
-    pkgs.fzf
-    pkgs.btop
-    pkgs.gping
-    pkgs.zellij
     pkgs.du-dust
-    pkgs.wezterm
     pkgs.xdg-utils
     pkgs.glibcLocales
     pkgs.wl-clipboard
     pkgs.any-nix-shell
-    pkgs.brightnessctl
     pkgs.dracula-theme
     pkgs.pulseaudioFull
     pkgs.dracula-icon-theme
 
     # desktop
     pkgs.waybar
+    pkgs.wezterm
     pkgs.swaylock
+    pkgs.xfce.thunar
     pkgs.rofi-wayland
 
     # internet
@@ -153,17 +154,17 @@
       package = pkgs.dracula-theme;
     };
   };
-  #__ gtk = {
-  #__   enable = true;
-  #__   theme = {
-  #__     name = "Dracula";
-  #__     package = pkgs.dracula-theme;
-  #__   };
-  #__   iconTheme = {
-  #__     name = "Dracula";
-  #__     package = pkgs.dracula-icon-theme;
-  #__   };
-  #__ };
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Dracula";
+      package = pkgs.dracula-theme;
+    };
+    iconTheme = {
+      name = "Dracula";
+      package = pkgs.dracula-icon-theme;
+    };
+  };
   home.pointerCursor = {
     gtk.enable = true;
     name = "Dracula-cursors";
@@ -173,19 +174,21 @@
 
   home.sessionVariables = {
     EDITOR = "vim";
+    VISUAL = "vim";
     LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
     LANG = "en_US.UTF-8";
     LC_CTYPE = "en_US.UTF-8";
     LC_ALL = "en_US.UTF-8";
     PAGER = "less -FirSwX";
+    TERMINAL = "wezterm";
+    BROWSER = "firefox";
   };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
-  # Enable home-manager and git
+  # Enable home-manager
   programs.home-manager.enable = true;
-  programs.git.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";
