@@ -87,10 +87,14 @@
     pkgs.zellij
     pkgs.du-dust
     pkgs.wezterm
+    pkgs.xdg-utils
     pkgs.glibcLocales
+    pkgs.wl-clipboard
     pkgs.any-nix-shell
     pkgs.brightnessctl
+    pkgs.dracula-theme
     pkgs.pulseaudioFull
+    pkgs.dracula-icon-theme
 
     # desktop
     pkgs.waybar
@@ -139,6 +143,32 @@
     config = rec {
       modifier = "Mod4";
     };
+  };
+
+  # Setting Up Dracula theme
+  qt = {
+    enable = true;
+    style = {
+      name = "Dracula";
+      package = pkgs.dracula-theme;
+    };
+  };
+  #__ gtk = {
+  #__   enable = true;
+  #__   theme = {
+  #__     name = "Dracula";
+  #__     package = pkgs.dracula-theme;
+  #__   };
+  #__   iconTheme = {
+  #__     name = "Dracula";
+  #__     package = pkgs.dracula-icon-theme;
+  #__   };
+  #__ };
+  home.pointerCursor = {
+    gtk.enable = true;
+    name = "Dracula-cursors";
+    package = pkgs.dracula-theme;
+    size = 16;
   };
 
   home.sessionVariables = {
