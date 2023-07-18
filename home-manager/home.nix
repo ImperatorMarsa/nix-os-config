@@ -93,9 +93,9 @@
     pkgs.pulseaudioFull
 
     # desktop
-    pkgs.wofi
     pkgs.waybar
     pkgs.swaylock
+    pkgs.rofi-wayland
 
     # internet
     pkgs.yandex-disk
