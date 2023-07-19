@@ -89,17 +89,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Enable sound.
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    jack.enable = true;
-  };
-
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
 
@@ -116,12 +105,6 @@
     LC_TELEPHONE      = "ru_RU.UTF-8";
     LC_MEASUREMENT    = "ru_RU.UTF-8";
     LC_IDENTIFICATION = "ru_RU.UTF-8";
-  };
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
   };
 
   programs.fish.enable = true;
@@ -151,16 +134,6 @@
     wget
   ];
 
-  # This setups a SSH server. Very important if you're setting up a headless system.
-  # Feel free to remove if you don't need it.
-  #__ services.openssh = {
-  #__   enable = true;
-  #__   # Forbid root login through SSH.
-  #__   permitRootLogin = "no";
-  #__   # Use keys only. Remove if you want to SSH using password (not recommended)
-  #__   passwordAuthentication = false;
-  #__ };
-
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -179,10 +152,42 @@
     driSupport = true;
   };
 
+  #
   # List services that you want to enable:
+  #
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+
+  # Enable batarry mangment system
+  services.auto-cpufreq.enable = true;
+
+  # Enable sound.
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    jack.enable = true;
+  };
+
+  # Configure keymap in X11
+  services.xserver = {
+    layout = "us";
+    xkbVariant = "";
+  };
+
+  # This setups a SSH server. Very important if you're setting up a headless system.
+  # Feel free to remove if you don't need it.
+  #__ services.openssh = {
+  #__   enable = true;
+  #__   # Forbid root login through SSH.
+  #__   permitRootLogin = "no";
+  #__   # Use keys only. Remove if you want to SSH using password (not recommended)
+  #__   passwordAuthentication = false;
+  #__ };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
