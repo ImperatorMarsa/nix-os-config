@@ -82,6 +82,9 @@ exec swayidle -w \
     # mouse button for dragging.
     floating_modifier $mod normal
 
+    # Open FileManager
+    bindsym $mod+e exec thunar
+
     # Open Browser
     bindsym $mod+w exec firefox
 
