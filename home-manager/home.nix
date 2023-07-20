@@ -80,6 +80,7 @@
     pkgs.gping
     pkgs.pfetch
     pkgs.zellij
+    pkgs.ripgrep
     pkgs.brightnessctl
 
     # security
@@ -104,6 +105,7 @@
 
     # internet
     pkgs.yandex-disk
+    pkgs.skypeforlinux
     pkgs.telegram-desktop
 
     # fonts
