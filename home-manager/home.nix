@@ -104,9 +104,12 @@
     pkgs.rofi-wayland
 
     # internet
+    pkgs.openvpn
+    pkgs.remmina
     pkgs.yandex-disk
     pkgs.skypeforlinux
     pkgs.telegram-desktop
+    pkgs.pkgs.appimage-run
 
     # fonts
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
