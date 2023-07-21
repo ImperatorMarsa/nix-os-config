@@ -110,6 +110,9 @@
     pkgs.skypeforlinux
     pkgs.telegram-desktop
     pkgs.pkgs.appimage-run
+    pkgs.networkmanager-openvpn
+    pkgs.thunderbird
+    pkgs.thunderbirdPackages.thunderbird-115
 
     # fonts
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
@@ -132,6 +135,7 @@
     # '';
     ".vimrc".source           = ./configs/vim/vimrc;
     ".config/lsd".source      = ./configs/lsd;
+    ".config/rofi".source     = ./configs/rofi;
     ".config/sway".source     = ./configs/sway;
     ".config/waybar".source   = ./configs/waybar;
     ".config/wezterm".source  = ./configs/wezterm;
