@@ -179,6 +179,13 @@
     xkbVariant = "";
   };
 
+  # Setup swaylog login
+  security.pam.services.swaylock.text = ''
+    # PAM configuration file for the swaylock screen locker. By default, it includes
+    # the 'login' configuration file (see /etc/pam.d/login)
+    auth include login
+  '';
+
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
   #__ services.openssh = {

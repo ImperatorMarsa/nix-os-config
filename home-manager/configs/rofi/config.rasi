@@ -145,5 +145,5 @@ element-text, element-icon {
     text-color: inherit;
 }
 element {
-  children: [element-icon, element-text, element-icon];
+  children: [element-text, element-icon];
 }
