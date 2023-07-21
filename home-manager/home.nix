@@ -136,6 +136,7 @@
     ".vimrc".source           = ./configs/vim/vimrc;
     ".config/lsd".source      = ./configs/lsd;
     ".config/rofi".source     = ./configs/rofi;
+    ".config/mako".source     = ./configs/mako;
     ".config/sway".source     = ./configs/sway;
     ".config/waybar".source   = ./configs/waybar;
     ".config/wezterm".source  = ./configs/wezterm;
@@ -195,6 +196,13 @@
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
+
+  # notification daemon
+  services.mako = {
+    enable = true;
+    defaultTimeout = 10000;
+    font = "JetBrains Nerd Font Mono 12";
+  };
 
   # Enable home-manager
   programs.home-manager.enable = true;
