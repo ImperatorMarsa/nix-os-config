@@ -186,6 +186,20 @@
     auth include login
   '';
 
+  # Set up dissplay manager
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+        user = "timofey";
+      };
+    };
+  };
+  # unlock GPG keyring on login
+  security.pam.services.greetd.enableGnomeKeyring = true;
+  services.gnome.gnome-keyring.enable = true;
+
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
   #__ services.openssh = {

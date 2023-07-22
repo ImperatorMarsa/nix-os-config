@@ -192,6 +192,7 @@
     PAGER = "less -FirSwX";
     TERMINAL = "wezterm";
     BROWSER = "firefox";
+    NIXOS_OZONE_WL = "1";
   };
 
   # Nicely reload system units when changing configs
