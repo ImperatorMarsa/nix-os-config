@@ -85,6 +85,9 @@ exec swayidle -w \
     # Open FileManager
     bindsym $mod+e exec thunar
 
+    # Open KeepassXC
+    bindsym $mod+Shift+p exec keepassxc
+
     # Open Browser
     bindsym $mod+w exec firefox
 
