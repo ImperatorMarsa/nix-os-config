@@ -89,6 +89,7 @@
     # utils
     pkgs.du-dust
     pkgs.xdg-utils
+    pkgs.libnotify
     pkgs.glibcLocales
     pkgs.wl-clipboard
     pkgs.any-nix-shell
@@ -136,7 +137,6 @@
     ".vimrc".source           = ./configs/vim/vimrc;
     ".config/lsd".source      = ./configs/lsd;
     ".config/rofi".source     = ./configs/rofi;
-    ".config/mako".source     = ./configs/mako;
     ".config/sway".source     = ./configs/sway;
     ".config/waybar".source   = ./configs/waybar;
     ".config/wezterm".source  = ./configs/wezterm;
@@ -192,6 +192,7 @@
     PAGER = "less -FirSwX";
     TERMINAL = "wezterm";
     BROWSER = "firefox";
+    WAYLAND_DISPLAY = "wayland-1";
     NIXOS_OZONE_WL = "1";
   };
 
@@ -202,7 +203,45 @@
   services.mako = {
     enable = true;
     defaultTimeout = 10000;
+
     font = "JetBrains Nerd Font Mono 12";
+
+    backgroundColor = "#282a36";
+    textColor = "#f8f8f2";
+    borderColor = "#282a36";
+    borderSize = 5;
+
+    extraConfig = ''
+      [urgency=low]
+      border-color=#282a36
+
+      [urgency=normal]
+      border-color=#f1fa8c
+
+      [urgency=critical]
+      ignore-timeout=1
+      border-color=#ff5555
+      default-timeout=30000
+    '';
+  };
+  systemd.user.services.mako = {
+    Unit = {
+      Description = "Mako notification daemon";
+      PartOf = [ "graphical-session.target" ];
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+    Service = {
+      Type = "dbus";
+      BusName = "org.freedesktop.Notifications";
+      ExecStart = "${pkgs.mako}/bin/mako";
+      RestartSec = 5;
+      Restart = "always";
+    };
+    environment = {
+      WAYLAND_DISPLAY = "wayland-1";
+    };
   };
 
   # Enable home-manager
@@ -210,4 +249,5 @@
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";
+  news.display = "show";
 }
