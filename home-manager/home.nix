@@ -206,10 +206,10 @@
 
     font = "JetBrains Nerd Font Mono 12";
 
-    backgroundColor = "#282a36";
+    backgroundColor = "#44475a";
     textColor = "#f8f8f2";
     borderColor = "#282a36";
-    borderSize = 5;
+    borderSize = 3;
 
     extraConfig = ''
       [urgency=low]
@@ -220,6 +220,7 @@
 
       [urgency=critical]
       ignore-timeout=1
+      text-color=#ff79c6
       border-color=#ff5555
       default-timeout=30000
     '';
@@ -249,5 +250,5 @@
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";
-  news.display = "show";
+  #__ news.display = "show";
 }
