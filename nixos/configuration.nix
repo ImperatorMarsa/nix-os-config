@@ -179,12 +179,17 @@
     xkbVariant = "";
   };
 
-  # Setup swaylog login
-  security.pam.services.swaylock.text = ''
-    # PAM configuration file for the swaylock screen locker. By default, it includes
-    # the 'login' configuration file (see /etc/pam.d/login)
-    auth include login
-  '';
+  # Fingerptint reader setings
+  services.fprintd.enable = true;
+  security.pam.services = {
+    sudo.fprintAuth = true;
+    login.fprintAuth = true;
+    greetd.fprintAuth = true;
+    swaylock.fprintAuth = true;
+    xscreensaver.fprintAuth = true;
+    swaylock-effects.fprintAuth = true;
+    system-local-login.fprintAuth = true;
+  };
 
   # Set up dissplay manager
   services.greetd = {
