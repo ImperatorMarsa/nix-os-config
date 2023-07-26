@@ -1,7 +1,6 @@
 O = vim.opt
 
 O.backup = true                           -- creates a backup file
-O.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
 O.cmdheight = 2                           -- more space in the neovim command line for displaying messages
 O.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 O.conceallevel = 0                        -- so that `` is visible in markdown files
