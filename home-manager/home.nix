@@ -78,6 +78,7 @@
     pkgs.fzf
     pkgs.btop
     pkgs.gping
+    pkgs.neovim
     pkgs.pfetch
     pkgs.zellij
     pkgs.ripgrep
@@ -138,6 +139,7 @@
     ".config/lsd".source      = ./configs/lsd;
     ".config/rofi".source     = ./configs/rofi;
     ".config/sway".source     = ./configs/sway;
+    ".config/nvim".source   = ./configs/nvim;
     ".config/waybar".source   = ./configs/waybar;
     ".config/wezterm".source  = ./configs/wezterm;
     ".config/swaylock".source = ./configs/swaylock;
@@ -183,8 +185,8 @@
   };
 
   home.sessionVariables = {
-    EDITOR = "vim";
-    VISUAL = "vim";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
     LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
     LANG = "en_US.UTF-8";
     LC_CTYPE = "en_US.UTF-8";
