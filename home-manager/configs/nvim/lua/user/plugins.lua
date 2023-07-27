@@ -62,6 +62,9 @@ return packer.startup(function(use)
   use "lewis6991/gitsigns.nvim"
   use "tpope/vim-fugitive"
 
+  -- Comenting
+  use 'numToStr/Comment.nvim'
+
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.2',
     requires = { { 'nvim-lua/plenary.nvim' } }

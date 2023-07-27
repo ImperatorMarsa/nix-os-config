@@ -55,10 +55,22 @@ require('lualine').setup {
   }
 }
 -- ### telescope --
-require('telescope').setup()
+local status_ok, telescope = pcall(require, "telescope")
+if status_ok then
+  telescope.setup()
+end
 
 -- ### gitsigns --
-require('gitsigns').setup()
+local status_ok, gitsigns = pcall(require, "gitsigns")
+if status_ok then
+  gitsigns.setup()
+end
+
+-- ### Comment --
+local status_ok, Comment = pcall(require, "Comment")
+if status_ok then
+  Comment.setup()
+end
 
 -- # --
 -- # colorscheme --
