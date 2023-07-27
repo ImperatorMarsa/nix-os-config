@@ -78,7 +78,6 @@
     pkgs.fzf
     pkgs.btop
     pkgs.gping
-    pkgs.neovim
     pkgs.pfetch
     pkgs.zellij
     pkgs.ripgrep
