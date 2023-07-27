@@ -55,7 +55,10 @@ require('lualine').setup {
   }
 }
 -- ### telescope --
-require('telescope').setup {}
+require('telescope').setup()
+
+-- ### gitsigns --
+require('gitsigns').setup()
 
 -- # --
 -- # colorscheme --

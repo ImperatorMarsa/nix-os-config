@@ -72,3 +72,47 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fj', builtin.jumplist, {})
+
+-- ### gitsigns --
+local gs = require('gitsigns')
+-- Stage/reset individual hunks under cursor in a file
+vim.keymap.set('n', '<leader>gs', gs.stage_hunk, {})
+vim.keymap.set('v', '<leader>gs', function() gs.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end, {})
+vim.keymap.set('n', '<leader>gr', gs.reset_hunk, {})
+vim.keymap.set('v', '<leader>gr', function() gs.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end, {})
+vim.keymap.set('n', '<leader>gu', gs.undo_stage_hunk, {})
+
+-- Stage/reset all hunks in a file
+vim.keymap.set('n', '<leader>gS', gs.stage_buffer, {})
+vim.keymap.set('n', '<leader>gR', gs.reset_buffer, {})
+vim.keymap.set('n', '<leader>gU', gs.reset_buffer_index, {})
+
+-- Jump between hunks
+vim.keymap.set('n', '<leader>gn', gs.next_hunk, {})
+vim.keymap.set('n', ']g', "&diff ? ']g' : ':Gitsigns next_hunk<CR>'", { noremap = true, silent = true, expr = true })
+vim.keymap.set('n', '<leader>gp', gs.prev_hunk, {})
+vim.keymap.set('n', '[g', "&diff ? '[g' : ':Gitsigns prev_hunk<CR>'", { noremap = true, silent = true, expr = true })
+
+-- Popup what's changed in a hunk under cursor
+vim.keymap.set('n', '<leader>gP', gs.preview_hunk, {})
+
+-- Git blame
+vim.keymap.set('n', '<leader>gb', function() gs.blame_line { full = true } end, {})
+vim.keymap.set('n', '<leader>tb', gs.toggle_current_line_blame, {})
+
+vim.keymap.set('n', '<leader>gd', gs.diffthis, {})
+vim.keymap.set('n', '<leader>gD', function() gs.diffthis('~') end, {})
+vim.keymap.set('n', '<leader>td', gs.toggle_deleted, {})
+
+-- ### vim-fugitive --
+-- Open git status in interative window (similar to lazygit)
+keymap("n", "<Leader>gg", ":Git<CR>", opts)
+
+-- Open commit window (creates commit after writing and saving commit msg)
+keymap("n", "<Leader>gc", ":Git commit | startinsert<CR>", opts)
+
+-- Other tools from fugitive
+keymap("n", '<Leader>gfd', ':Git difftool<CR>', opts)
+keymap("n", '<Leader>gm', ':Git mergetool<CR>', opts)
+keymap("n", '<Leader>g|', ':Gvdiffsplit<CR>', opts)
+keymap("n", '<Leader>g_', ':Gdiffsplit<CR>', opts)
