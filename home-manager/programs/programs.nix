@@ -6,6 +6,7 @@
     ./git/git.nix
     ./tmux/tmux.nix
     ./fish/fish.nix
+    ./nvim/nvim.nix
     ./zoxide/zoxide.nix
     ./firefox/firefox.nix
     ./lazygit/lazygit.nix

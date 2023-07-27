@@ -1,7 +1,7 @@
 O = vim.opt
 
 O.backup = true                            -- creates a backup file
-O.cmdheight = 2                            -- more space in the neovim command line for displaying messages
+O.cmdheight = 1                            -- more space in the neovim command line for displaying messages
 O.completeopt = { "menuone", "noselect" }  -- mostly just for cmp
 O.conceallevel = 0                         -- so that `` is visible in markdown files
 O.fileencoding = "utf-8"                   -- the encoding written to a file
@@ -47,13 +47,17 @@ O.expandtab = true -- convert tabs to spaces
 -- # setup plugins --
 -- # --
 -- ### lualine --
-require('lualine').setup {
-  options = {
-    icons_enabled = true,
-    component_separators = { left = '', right = '' },
-    section_separators = { left = '', right = '' },
+local status_ok, lualine = pcall(require, "lualine")
+if status_ok then
+  lualine.setup {
+    options = {
+      icons_enabled = true,
+      component_separators = { left = '', right = '' },
+      section_separators = { left = '', right = '' },
+    }
   }
-}
+end
+
 -- ### telescope --
 local status_ok, telescope = pcall(require, "telescope")
 if status_ok then

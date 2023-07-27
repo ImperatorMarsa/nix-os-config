@@ -134,14 +134,15 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    ".vimrc".source           = ./configs/vim/vimrc;
-    ".config/lsd".source      = ./configs/lsd;
-    ".config/rofi".source     = ./configs/rofi;
-    ".config/sway".source     = ./configs/sway;
-    ".config/nvim".source   = ./configs/nvim;
-    ".config/waybar".source   = ./configs/waybar;
-    ".config/wezterm".source  = ./configs/wezterm;
-    ".config/swaylock".source = ./configs/swaylock;
+    ".vimrc".source                = ./configs/vim/vimrc;
+    ".config/lsd".source           = ./configs/lsd;
+    ".config/rofi".source          = ./configs/rofi;
+    ".config/sway".source          = ./configs/sway;
+    ".config/waybar".source        = ./configs/waybar;
+    ".config/wezterm".source       = ./configs/wezterm;
+    ".config/swaylock".source      = ./configs/swaylock;
+    ".config/nvim/lua".source      = ./configs/nvim/lua;
+    ".config/nvim/init.lua".source = ./configs/nvim/init.lua;
   };
 
 
