@@ -144,6 +144,22 @@
   #   enableSSHSupport = true;
   # };
 
+  fonts = {
+    enableDefaultFonts = true;
+    fonts = with pkgs; [ 
+      font-awesome
+      jetbrains-mono
+    ];
+
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "JetBrainsMono" ];
+        sansSerif = [ "JetBrainsMono" ];
+        monospace = [ "JetBrainsMono" ];
+      };
+    };
+  };
+
   security.polkit.enable = true;
 
   # enabling OpenGL support
