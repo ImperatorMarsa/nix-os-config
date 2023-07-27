@@ -6,8 +6,9 @@
     userName  = "Timofey Sitnikov";
     userEmail = "tima.sitnikov@mail.ru";
     extraConfig = {
-      merge.conflictstyle = "diff3";
       pull.rebase = true;
+      core = { editor = "nvim"; };
+      merge.conflictstyle = "diff3";
     };
     delta = {
       enable = true;
@@ -17,6 +18,7 @@
         line-numbers = true;
         side-by-side = true;
         show-syntax-themes = true;
+        syntax-theme = "dracula";
       };
     };
   };
