@@ -27,6 +27,7 @@ O.relativenumber = false                   -- set relative numbered lines
 O.numberwidth = 4                          -- set number column width to 2 {default 4}
 O.signcolumn = "yes"                       -- always show the sign column, otherwise it would shift the text each time
 O.wrap = false                             -- display lines as one long line
+O.smartindent = true                      -- display lines as one long line
 O.scrolloff = 8                            -- is one of my fav
 O.sidescrolloff = 8
 O.guifont = "JetBrains Nerd Font Mono:h17" -- the font used in graphical neovim applications
@@ -49,31 +50,64 @@ O.expandtab = true -- convert tabs to spaces
 -- ### lualine --
 local status_ok, lualine = pcall(require, "lualine")
 if status_ok then
-  lualine.setup {
-    options = {
-      icons_enabled = true,
-      component_separators = { left = '', right = '' },
-      section_separators = { left = '', right = '' },
+    lualine.setup {
+        options = {
+            icons_enabled = true,
+            component_separators = { left = '', right = '' },
+            section_separators = { left = '', right = '' },
+        }
     }
-  }
 end
 
 -- ### telescope --
 local status_ok, telescope = pcall(require, "telescope")
 if status_ok then
-  telescope.setup()
+    telescope.setup()
 end
 
 -- ### gitsigns --
 local status_ok, gitsigns = pcall(require, "gitsigns")
 if status_ok then
-  gitsigns.setup()
+    gitsigns.setup()
 end
 
 -- ### Comment --
 local status_ok, Comment = pcall(require, "Comment")
 if status_ok then
-  Comment.setup()
+    Comment.setup()
+end
+
+-- ### Comment --
+local status_ok, treesitter = pcall(require, "nvim-treesitter.configs")
+if status_ok then
+    treesitter.setup {
+        prefer_git = false,
+        compilers = { "clang" },
+
+        -- A list of parser names, or "all" (the five listed parsers should always be installed)
+        ensure_installed = {
+            "css",
+            "lua",
+            "php",
+            "sql",
+            "html",
+            "query",
+            "vimdoc",
+            "javascript",
+        },
+
+        -- Install parsers synchronously (only applied to `ensure_installed`)
+        sync_install = false,
+
+        -- Automatically install missing parsers when entering buffer
+        -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+        auto_install = true,
+
+        highlight = {
+            enable = true,
+            additional_vim_regex_highlighting = false,
+        },
+    }
 end
 
 -- # --
