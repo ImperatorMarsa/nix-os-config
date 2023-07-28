@@ -12,6 +12,8 @@
     # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
+    # <nixos-hardware/lenovo/thinkpad/x220>
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x220
     ./hardware-configuration.nix
   ];
 
@@ -161,12 +163,6 @@
   };
 
   security.polkit.enable = true;
-
-  # enabling OpenGL support
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-  };
 
   #
   # List services that you want to enable:

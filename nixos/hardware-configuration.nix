@@ -29,6 +29,12 @@
     [ { device = "/dev/disk/by-uuid/1a4ea190-3fae-4627-9886-c0bb7d8a32e5"; }
     ];
 
+  # enabling OpenGL support
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+  };
+
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
