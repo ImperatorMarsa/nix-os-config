@@ -77,6 +77,23 @@ return packer.startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
+    -- LSP
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v2.x',
+        requires = {
+            -- LSP Support
+            { 'neovim/nvim-lspconfig' },             -- Required
+            { 'williamboman/mason.nvim' },           -- Optional
+            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+
+            -- Autocompletion
+            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+            { 'hrsh7th/nvim-cmp' },     -- Required
+            { 'L3MON4D3/LuaSnip' },     -- Required
+        }
+    }
+
     -- snippets
     use "L3MON4D3/LuaSnip"             --snippet engine
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use

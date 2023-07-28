@@ -24,6 +24,7 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<leader>ca", ":w|%bd|e#|bd#<CR>", opts)
 
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
@@ -47,6 +48,8 @@ vim.cmd([[
 -- Stay in indent mode
 keymap("v", "<A-h>", "<gv", opts)
 keymap("v", "<A-l>", ">gv", opts)
+
+keymap("v", "<F8>", ":sort i<CR>", opts)
 
 -- Move text up and down
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)

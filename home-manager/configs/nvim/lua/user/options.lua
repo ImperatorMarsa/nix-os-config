@@ -27,7 +27,7 @@ O.relativenumber = false                   -- set relative numbered lines
 O.numberwidth = 4                          -- set number column width to 2 {default 4}
 O.signcolumn = "yes"                       -- always show the sign column, otherwise it would shift the text each time
 O.wrap = false                             -- display lines as one long line
-O.smartindent = true                      -- display lines as one long line
+O.smartindent = true                       -- display lines as one long line
 O.scrolloff = 8                            -- is one of my fav
 O.sidescrolloff = 8
 O.guifont = "JetBrains Nerd Font Mono:h17" -- the font used in graphical neovim applications
@@ -77,7 +77,27 @@ if status_ok then
     Comment.setup()
 end
 
--- ### Comment --
+-- ### LSP --
+local status_ok, lspzero = pcall(require, "lsp-zero")
+if status_ok then
+    local lsp = lspzero.preset({})
+
+    lsp.on_attach(function(client, bufnr)
+        -- see :help lsp-zero-keybindings
+        -- to learn the available actions
+        lsp.default_keymaps({ buffer = bufnr })
+    end)
+
+    -- (Optional) Configure lua language server for neovim
+    local status_ok, lspconfig = pcall(require, "lspconfig")
+    if status_ok then
+        lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
+    end
+
+    lsp.setup()
+end
+
+-- ### tree-sitter --
 local status_ok, treesitter = pcall(require, "nvim-treesitter.configs")
 if status_ok then
     treesitter.setup {
