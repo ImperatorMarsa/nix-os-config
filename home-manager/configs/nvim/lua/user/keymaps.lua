@@ -26,7 +26,9 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<leader>ca", ":w|%bd|e#|bd#<CR>", opts)
 
-keymap("n", "<leader>e", ":Lex 30<cr>", opts)
+keymap("n", "<leader>e", ":Lex 30<CR>", opts)
+
+keymap("n", "<esc><esc>", ":noh<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<A-k>", ":resize +2<CR>", opts)
