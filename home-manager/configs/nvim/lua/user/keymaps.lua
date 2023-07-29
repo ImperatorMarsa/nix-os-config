@@ -30,6 +30,8 @@ keymap("n", "<leader>e", ":Lex 30<CR>", opts)
 
 keymap("n", "<esc><esc>", ":noh<CR>", opts)
 
+keymap("n", "<F11>", ":set spell!<CR>", opts)
+
 -- Resize with arrows
 keymap("n", "<A-k>", ":resize +2<CR>", opts)
 keymap("n", "<A-j>", ":resize -2<CR>", opts)
