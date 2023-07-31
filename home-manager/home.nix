@@ -88,6 +88,7 @@
 
     # utils
     pkgs.du-dust
+    pkgs.clang_16
     pkgs.xdg-utils
     pkgs.libnotify
     pkgs.glibcLocales
@@ -96,6 +97,7 @@
     pkgs.dracula-theme
     pkgs.pulseaudioFull
     pkgs.dracula-icon-theme
+    pkgs.luajitPackages.jsregexp
 
     # desktop
     pkgs.waybar
@@ -108,12 +110,11 @@
     pkgs.openvpn
     pkgs.remmina
     pkgs.yandex-disk
+    pkgs.thunderbird
     pkgs.skypeforlinux
     pkgs.telegram-desktop
     pkgs.pkgs.appimage-run
     pkgs.networkmanager-openvpn
-    pkgs.thunderbird
-    pkgs.thunderbirdPackages.thunderbird-115
 
     # fonts
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
