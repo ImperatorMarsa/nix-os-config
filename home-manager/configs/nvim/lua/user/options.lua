@@ -31,6 +31,13 @@ O.smartindent = true                       -- display lines as one long line
 O.scrolloff = 8                            -- is one of my fav
 O.sidescrolloff = 8
 O.guifont = "JetBrains Nerd Font Mono:h17" -- the font used in graphical neovim applications
+O.spell         = true
+O.spellcapcheck = ''
+O.spelllang     = 'ru_ru,en_us,cjk'
+O.spelloptions  = 'camel'
+O.spellsuggest  = 'best,9'
+O.colorcolumn   = '100'
+O.complete:append('kspell')
 
 O.shortmess:append "c"
 
