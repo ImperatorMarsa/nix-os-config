@@ -141,8 +141,6 @@
     ".config/waybar".source        = ./configs/waybar;
     ".config/wezterm".source       = ./configs/wezterm;
     ".config/swaylock".source      = ./configs/swaylock;
-    ".config/nvim/lua".source      = ./configs/nvim/lua;
-    ".config/nvim/init.lua".source = ./configs/nvim/init.lua;
   };
 
 
