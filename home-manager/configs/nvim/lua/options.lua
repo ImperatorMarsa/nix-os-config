@@ -15,7 +15,7 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = true
 
 vim.o.smartindent = true
-----
+-- -- --
 
 -- swap\undo
 local backupdir = os.getenv("HOME") .. "/.vim/n_backup/"
@@ -39,7 +39,7 @@ if vim.fn.isdirectory(swapdir) == 0 then
 end
 vim.o.directory = swapdir
 vim.o.swapfile = true
-----
+-- -- --
 
 vim.o.mouse = 'a'
 
