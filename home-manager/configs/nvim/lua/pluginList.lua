@@ -1,3 +1,10 @@
+local os_name = vim.loop.os_uname().sysname
+local fzf_native_make_comand = 'make'
+if os_name == "Windows" or os_name == "Windows_NT" then
+    print('Мы в винде!!!!')
+    fzf_native_make_comand = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+end
+
 return {
     --
     -- UI
@@ -29,6 +36,7 @@ return {
             })
         end,
     },
+    -- -- --
 
     -- Indent Hightlite
     {
@@ -65,6 +73,7 @@ return {
     -- -- --
     --
     --
+    --
 
     --
     -- Utils
@@ -82,12 +91,7 @@ return {
         end,
     },
     -- -- --
-    --
-    --
 
-    --
-    -- Coding
-    --
     -- Comnent
     {
         "numToStr/Comment.nvim",
@@ -95,4 +99,53 @@ return {
             require("Comment").setup()
         end
     },
+    -- -- --
+    --
+    --
+    --
+
+    --
+    -- Coding
+    --
+    -- LSP
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+
+    'folke/neodev.nvim',
+    -- -- --
+
+    -- code complition
+    {
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            'L3MON4D3/LuaSnip',
+            'saadparwaiz1/cmp_luasnip',
+            'rafamadriz/friendly-snippets',
+            'hrsh7th/cmp-nvim-lsp',
+        },
+    },
+    -- -- --
+
+    -- tree sitter
+    {
+        'nvim-treesitter/nvim-treesitter',
+        build = ':TSUpdate',
+    },
+    -- -- --
+
+    -- Telescope
+    {
+        'nvim-telescope/telescope.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    },
+
+    {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = fzf_native_make_comand,
+    },
+    -- -- --
+    --
+    --
+    --
 }
