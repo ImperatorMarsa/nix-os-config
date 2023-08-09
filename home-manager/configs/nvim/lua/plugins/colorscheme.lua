@@ -1,6 +1,6 @@
 return {
     -- add dracula
-    { "dracula/vim" },
+    { "Mofiqul/dracula.nvim" },
 
     -- Configure LazyVim to load "dracula"
     {
