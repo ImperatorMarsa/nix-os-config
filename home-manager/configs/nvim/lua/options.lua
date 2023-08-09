@@ -18,7 +18,13 @@ vim.o.smartindent = true
 -- -- --
 
 -- swap\undo
-local backupdir = os.getenv("HOME") .. "/.vim/n_backup/"
+local os_name = vim.loop.os_uname().sysname
+local home_dir = os.getenv("HOME")
+if os_name == "Windows" or os_name == "Windows_NT" then
+    home_dir = "~"
+end
+
+local backupdir = home_dir .. "/.vim/n_backup/"
 if vim.fn.isdirectory(backupdir) == 0 then
     vim.fn.mkdir(backupdir, "p", 0755)
 end
@@ -26,14 +32,14 @@ vim.o.backupdir = backupdir
 vim.o.backup = true
 vim.o.writebackup = true
 
-local undodir = os.getenv("HOME") .. "/.vim/n_undo/"
+local undodir = home_dir .. "/.vim/n_undo/"
 if vim.fn.isdirectory(undodir) == 0 then
     vim.fn.mkdir(undodir, "p", 0755)
 end
 vim.o.undodir = undodir
 vim.o.undofile = true
 
-local swapdir = os.getenv("HOME") .. "/.vim/n_swap/"
+local swapdir = home_dir .. "/.vim/n_swap/"
 if vim.fn.isdirectory(swapdir) == 0 then
     vim.fn.mkdir(swapdir, "p", 0755)
 end

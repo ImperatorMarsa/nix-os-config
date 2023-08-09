@@ -1,7 +1,6 @@
 local os_name = vim.loop.os_uname().sysname
 local fzf_native_make_comand = 'make'
 if os_name == "Windows" or os_name == "Windows_NT" then
-    print('Мы в винде!!!!')
     fzf_native_make_comand = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
 end
 
