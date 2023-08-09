@@ -1,6 +1,10 @@
+function KeyMap(mode, lhs, rhs, opts)
+    vim.keymap.set(mode, lhs, rhs, opts)
+end
+
 -- telescope general
 local builtin = require('telescope.builtin')
-vim.keymap.set(
+KeyMap(
     'n',
     '<leader>ff',
     function()
@@ -10,8 +14,8 @@ vim.keymap.set(
     end,
     {}
 )
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>fj', builtin.jumplist, {})
-vim.keymap.set('n', '<leader>fS', builtin.spell_suggest, {})
+KeyMap('n', '<leader>fg', builtin.live_grep, {})
+KeyMap('n', '<leader>fb', builtin.buffers, {})
+KeyMap('n', '<leader>fh', builtin.help_tags, {})
+KeyMap('n', '<leader>fj', builtin.jumplist, {})
+KeyMap('n', '<leader>fS', builtin.spell_suggest, {})
