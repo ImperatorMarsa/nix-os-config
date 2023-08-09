@@ -84,4 +84,15 @@ return {
     -- -- --
     --
     --
+
+    --
+    -- Coding
+    --
+    -- Comnent
+    {
+        "numToStr/Comment.nvim",
+        config = function()
+            require("Comment").setup()
+        end
+    },
 }
