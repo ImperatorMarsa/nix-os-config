@@ -17,6 +17,8 @@ local on_attach = function(_, bufnr)
 
     bufmap('K', vim.lsp.buf.hover)
 
+    bufmap('<F3>', vim.lsp.buf.format)
+
     vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
         vim.lsp.buf.format()
     end, {})
