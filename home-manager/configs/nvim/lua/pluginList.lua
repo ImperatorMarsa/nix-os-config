@@ -91,6 +91,10 @@ return {
     },
     -- -- --
 
+    -- VIM be Good
+    "ThePrimeagen/vim-be-good",
+    -- -- --
+
     -- Comnent
     {
         "numToStr/Comment.nvim",
