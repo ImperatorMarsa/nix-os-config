@@ -110,11 +110,11 @@
     pkgs.openvpn
     pkgs.remmina
     pkgs.yandex-disk
+    pkgs.thunderbird
     pkgs.skypeforlinux
     pkgs.telegram-desktop
     pkgs.pkgs.appimage-run
     pkgs.networkmanager-openvpn
-    pkgs.thunderbird
     pkgs.thunderbirdPackages.thunderbird-115
 
     # fonts

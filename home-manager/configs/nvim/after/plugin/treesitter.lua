@@ -7,6 +7,7 @@ require('nvim-treesitter.configs').setup {
         'javascript',
         'css',
         'html',
+        'nix',
         'sql',
     },
     auto_install = false,
