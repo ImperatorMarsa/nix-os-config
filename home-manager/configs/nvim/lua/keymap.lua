@@ -2,6 +2,11 @@ function KeyMap(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
 end
 
+-- Coping file headr\path
+KeyMap("n", "<leader>hr", ":let @+ = expand('%')<CR>", { desc = "Copy relative path for current buffer" })
+KeyMap("n", "<leader>hf", ":let @+ = expand('%:p')<CR>", { desc = "Copy full path for current buffer" })
+KeyMap("n", "<leader>hn", ":let @+ = expand('%:t')<CR>", { desc = "Copy just filename for current buffer" })
+
 -- general maping
 KeyMap({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
