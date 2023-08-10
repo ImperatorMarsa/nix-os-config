@@ -65,3 +65,9 @@ vim.opt.colorcolumn = "80"
 -- disable netrt
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+-- Foldings
+vim.opt.foldmethod = "indent"
+vim.cmd('set nofoldenable')
+vim.opt.foldlevel = 99
+
