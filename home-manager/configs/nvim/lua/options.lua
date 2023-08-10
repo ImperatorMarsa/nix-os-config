@@ -21,7 +21,7 @@ vim.o.smartindent = true
 local os_name = vim.loop.os_uname().sysname
 local home_dir = os.getenv("HOME")
 if os_name == "Windows" or os_name == "Windows_NT" then
-    home_dir = "~"
+    home_dir = "C:/Windows/Temp"
 end
 
 local backupdir = home_dir .. "/.vim/n_backup/"
