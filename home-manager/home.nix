@@ -88,6 +88,7 @@
 
     # utils
     pkgs.du-dust
+    pkgs.gnumake
     pkgs.xdg-utils
     pkgs.libnotify
     pkgs.glibcLocales
@@ -96,6 +97,7 @@
     pkgs.dracula-theme
     pkgs.pulseaudioFull
     pkgs.dracula-icon-theme
+    pkgs.luajitPackages.luarocks-nix
 
     # desktop
     pkgs.waybar
@@ -108,11 +110,11 @@
     pkgs.openvpn
     pkgs.remmina
     pkgs.yandex-disk
+    pkgs.thunderbird
     pkgs.skypeforlinux
     pkgs.telegram-desktop
     pkgs.pkgs.appimage-run
     pkgs.networkmanager-openvpn
-    pkgs.thunderbird
     pkgs.thunderbirdPackages.thunderbird-115
 
     # fonts
@@ -141,8 +143,6 @@
     ".config/waybar".source        = ./configs/waybar;
     ".config/wezterm".source       = ./configs/wezterm;
     ".config/swaylock".source      = ./configs/swaylock;
-    ".config/nvim/lua".source      = ./configs/nvim/lua;
-    ".config/nvim/init.lua".source = ./configs/nvim/init.lua;
   };
 
 
