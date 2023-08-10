@@ -88,6 +88,7 @@
 
     # utils
     pkgs.du-dust
+    pkgs.gnumake
     pkgs.xdg-utils
     pkgs.libnotify
     pkgs.glibcLocales
@@ -96,6 +97,7 @@
     pkgs.dracula-theme
     pkgs.pulseaudioFull
     pkgs.dracula-icon-theme
+    pkgs.luajitPackages.luarocks-nix
 
     # desktop
     pkgs.waybar
