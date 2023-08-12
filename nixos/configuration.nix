@@ -172,7 +172,20 @@
   # services.openssh.enable = true;
 
   # Enable batarry mangment system
-  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq = {
+    enable = true;
+    settings = {
+      battery = {
+        governor = "powersave";
+        scaling_max_freq = 1500000;
+        turbo = "never";
+      };
+      charger = {
+        governor = "performance";
+        turbo = "always";
+      };
+    };
+  };
 
   # Enable sound.
   security.rtkit.enable = true;
