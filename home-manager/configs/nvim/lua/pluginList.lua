@@ -95,6 +95,14 @@ return {
     "ThePrimeagen/vim-be-good",
     -- -- --
 
+    -- Buff only
+    "vim-scripts/BufOnly.vim",
+    -- -- --
+
+    -- Case change
+    "tpope/vim-abolish",
+    -- -- --
+
     -- Comnent
     {
         "numToStr/Comment.nvim",
