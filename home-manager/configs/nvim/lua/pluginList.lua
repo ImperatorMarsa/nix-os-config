@@ -100,6 +100,10 @@ return {
     -- -- --
 
     -- Case change
+    "ggandor/leap.nvim",
+    -- -- --
+
+    -- Case change
     "tpope/vim-abolish",
     -- -- --
 
