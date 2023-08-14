@@ -20,7 +20,6 @@ KeyMap("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
 KeyMap("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
 KeyMap("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
 
-
 -- Move Lines
 KeyMap("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
 KeyMap("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
@@ -28,6 +27,15 @@ KeyMap("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
 KeyMap("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
 KeyMap("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 KeyMap("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+
+if vim.g.neovide then
+    KeyMap('n', '<C-s>', ':w<CR>') -- Save
+    KeyMap('v', '<C-c>', '"+y') -- Copy
+    KeyMap('n', '<C-v>', '"+P') -- Paste normal mode
+    KeyMap('v', '<C-v>', '"+P') -- Paste visual mode
+    KeyMap('c', '<C-v>', '<C-R>+') -- Paste command mode
+    KeyMap('i', '<C-v>', '<ESC>l"+Pli') -- Paste insert mode
+end
 
 -- telescope general
 local builtin = require('telescope.builtin')
