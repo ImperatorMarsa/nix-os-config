@@ -74,3 +74,30 @@ vim.opt.foldlevel = 99
 -- spelling
 vim.opt.spell = true
 vim.opt.spelllang = 'ru_ru,en_us'
+vim.opt.iskeyword = vim.opt.iskeyword:append('-')
+
+-- keyboard tolerant
+local function escape(str)
+    local escape_chars = [[;,."|\]]
+    return vim.fn.escape(str, escape_chars)
+end
+
+local en = [[`qwertyuiop[]asdfghjkl;'zxcvbnm]]
+local ru = [[ёйцукенгшщзхъфывапролджэячсмить]]
+local en_shift = [[~QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>]]
+local ru_shift = [[ËЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ]]
+local langmap = vim.fn.join({
+    escape(ru_shift) .. ';' .. escape(en_shift),
+    escape(ru) .. ';' .. escape(en),
+}, ',')
+vim.opt.langmap = langmap
+
+-- search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.hlsearch = true
+vim.opt.infercase = true
+vim.opt.grepprg = 'rg --vimgrep'
+
+-- Force English locale
+vim.cmd.language('en_US.utf8')
