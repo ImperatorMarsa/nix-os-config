@@ -6,12 +6,12 @@ function KeyMap(mode, lhs, rhs, Opts)
     vim.keymap.set(mode, lhs, rhs, Opts)
 end
 
--- Coping file headr\path
+-- Coping file header\path
 KeyMap("n", "<leader>hr", ":let @+ = expand('%')<CR>", { desc = "Copy relative path for current buffer" })
 KeyMap("n", "<leader>hf", ":let @+ = expand('%:p')<CR>", { desc = "Copy full path for current buffer" })
 KeyMap("n", "<leader>hn", ":let @+ = expand('%:t')<CR>", { desc = "Copy just filename for current buffer" })
 
--- general maping
+-- general mapping
 KeyMap({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
 -- better up/down
@@ -36,14 +36,15 @@ KeyMap("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 KeyMap("n", "k", "v:count == 0 ? 'gk' : 'k'", expr)
 KeyMap("n", "j", "v:count == 0 ? 'gj' : 'j'", expr)
 
-if vim.g.neovide then
-    KeyMap('n', '<C-s>', ':w<CR>')      -- Save
-    KeyMap('v', '<C-c>', '"+y')         -- Copy
-    KeyMap('n', '<C-v>', '"+P')         -- Paste normal mode
-    KeyMap('v', '<C-v>', '"+P')         -- Paste visual mode
-    KeyMap('c', '<C-v>', '<C-R>+')      -- Paste command mode
-    KeyMap('i', '<C-v>', '<ESC>l"+Pli') -- Paste insert mode
-end
+-- Copy/Cut/Paste into the system clipboard
+KeyMap('n', '<A-P>', '"+P')
+KeyMap('n', '<A-p>', '"+p')
+KeyMap('n', '<A-x>', '"+x')
+KeyMap('n', '<A-y>', '"+y')
+KeyMap('v', '<A-P>', '"+P')
+KeyMap('v', '<A-p>', '"+p')
+KeyMap('v', '<A-x>', '"+x')
+KeyMap('v', '<A-y>', '"+y')
 
 -- telescope general
 local builtin = require('telescope.builtin')
@@ -71,12 +72,6 @@ KeyMap(
     end,
     {}
 )
-
--- YY/XX Copy/Cut into the system clipboard
-vim.cmd([[
-noremap YY "+y<CR>
-noremap XX "+x<CR>
-]])
 
 -- Don't jump when using *
 KeyMap("n", "*", "*<C-o>", opts)
