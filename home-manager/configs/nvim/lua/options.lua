@@ -71,3 +71,6 @@ vim.opt.foldmethod = "indent"
 vim.cmd('set nofoldenable')
 vim.opt.foldlevel = 99
 
+-- spelling
+vim.opt.spell = true
+vim.opt.spelllang = 'ru_ru,en_us'
