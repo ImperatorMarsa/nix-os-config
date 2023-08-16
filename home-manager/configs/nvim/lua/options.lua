@@ -66,15 +66,17 @@ vim.opt.colorcolumn = "80"
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- Foldings
+-- foldings
 vim.opt.foldmethod = "indent"
 vim.cmd('set nofoldenable')
 vim.opt.foldlevel = 99
 
 -- spelling
 vim.opt.spell = true
-vim.opt.spelllang = 'ru_ru,en_us'
-vim.opt.iskeyword = vim.opt.iskeyword:append('-')
+vim.opt.spellcapcheck = ''
+vim.opt.spellsuggest = 'best,9'
+vim.opt.spelllang = 'ru_ru,en_us,cjk'
+vim.opt.spelloptions = 'camel'
 
 -- keyboard tolerant
 local function escape(str)
@@ -101,3 +103,5 @@ vim.opt.grepprg = 'rg --vimgrep'
 
 -- Force English locale
 vim.cmd.language('en_US.utf8')
+
+

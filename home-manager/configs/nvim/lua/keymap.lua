@@ -1,5 +1,9 @@
-function KeyMap(mode, lhs, rhs, opts)
-    vim.keymap.set(mode, lhs, rhs, opts)
+local opts = { noremap = true, silent = true }
+local expr = { noremap = true, silent = true, expr = true }
+
+
+function KeyMap(mode, lhs, rhs, Opts)
+    vim.keymap.set(mode, lhs, rhs, Opts)
 end
 
 -- Coping file headr\path
@@ -28,12 +32,16 @@ KeyMap("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
 KeyMap("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 KeyMap("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 
+-- Modify j and k when a line is wrapped. Jump to next VISUAL line
+KeyMap("n", "k", "v:count == 0 ? 'gk' : 'k'", expr)
+KeyMap("n", "j", "v:count == 0 ? 'gj' : 'j'", expr)
+
 if vim.g.neovide then
-    KeyMap('n', '<C-s>', ':w<CR>') -- Save
-    KeyMap('v', '<C-c>', '"+y') -- Copy
-    KeyMap('n', '<C-v>', '"+P') -- Paste normal mode
-    KeyMap('v', '<C-v>', '"+P') -- Paste visual mode
-    KeyMap('c', '<C-v>', '<C-R>+') -- Paste command mode
+    KeyMap('n', '<C-s>', ':w<CR>')      -- Save
+    KeyMap('v', '<C-c>', '"+y')         -- Copy
+    KeyMap('n', '<C-v>', '"+P')         -- Paste normal mode
+    KeyMap('v', '<C-v>', '"+P')         -- Paste visual mode
+    KeyMap('c', '<C-v>', '<C-R>+')      -- Paste command mode
     KeyMap('i', '<C-v>', '<ESC>l"+Pli') -- Paste insert mode
 end
 
@@ -63,3 +71,16 @@ KeyMap(
     end,
     {}
 )
+
+-- YY/XX Copy/Cut into the system clipboard
+vim.cmd([[
+noremap YY "+y<CR>
+noremap XX "+x<CR>
+]])
+
+-- Don't jump when using *
+KeyMap("n", "*", "*<C-o>", opts)
+
+-- Keep search matches in the middle of the window
+KeyMap("n", "n", "nzzzv", opts)
+KeyMap("n", "N", "Nzzzv", opts)
