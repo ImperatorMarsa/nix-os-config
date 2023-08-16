@@ -9,12 +9,14 @@ vim.o.relativenumber = true
 vim.o.signcolumn = 'yes'
 
 -- tabs
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
-vim.o.expandtab = true
-
-vim.o.smartindent = true
+vim.opt.softtabstop = 4
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.tabstop = 4            -- 1 tab = 4 spaces
+vim.opt.shiftwidth = 4         -- indentation rule
+vim.opt.formatoptions =
+'qnj1'                         -- q  - comment formatting; n - numbered lists; j - remove comment when joining lines; 1 - don't break after one-letter word
+vim.opt.expandtab = true       -- expand tab to spaces
 -- -- --
 
 -- swap\undo
@@ -30,7 +32,7 @@ if vim.fn.isdirectory(backupdir) == 0 then
 end
 vim.o.backupdir = backupdir
 vim.o.backup = true
-vim.o.writebackup = true
+vim.o.writebackup = false
 
 local undodir = home_dir .. "/.vim/n_undo/"
 if vim.fn.isdirectory(undodir) == 0 then
@@ -43,19 +45,23 @@ local swapdir = home_dir .. "/.vim/n_swap/"
 if vim.fn.isdirectory(swapdir) == 0 then
     vim.fn.mkdir(swapdir, "p", 0755)
 end
-vim.o.directory = swapdir
-vim.o.swapfile = true
+vim.o.directory       = swapdir
+vim.o.swapfile        = true
 -- -- --
 
-vim.o.mouse = 'a'
+vim.o.mouse           = 'a'
 
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
+vim.opt.hlsearch      = true
+vim.opt.incsearch     = true
 
 vim.opt.termguicolors = true
 
-vim.opt.scrolloff = 12
-vim.opt.signcolumn = "yes"
+-- Display
+vim.opt.showmatch     = true -- show matching brackets
+vim.opt.synmaxcol     = 300  -- stop syntax highlight after x lines for performance
+vim.opt.laststatus    = 2    -- always show status line
+vim.opt.scrolloff     = 12
+vim.opt.signcolumn    = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
@@ -67,7 +73,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- foldings
-vim.opt.foldmethod = "indent"
+vim.opt.foldmethod = "syntax"
 vim.cmd('set nofoldenable')
 vim.opt.foldlevel = 99
 
@@ -103,5 +109,3 @@ vim.opt.grepprg = 'rg --vimgrep'
 
 -- Force English locale
 vim.cmd.language('en_US.utf8')
-
-
