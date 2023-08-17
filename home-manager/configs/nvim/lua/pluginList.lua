@@ -1,7 +1,9 @@
 local os_name = vim.loop.os_uname().sysname
 local fzf_native_make_comand = 'make'
+
 if os_name == "Windows" or os_name == "Windows_NT" then
-    fzf_native_make_comand = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+    fzf_native_make_comand =
+    'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
 end
 
 return {
@@ -37,7 +39,11 @@ return {
     },
     -- -- --
 
-    -- Indent Hightlite
+    -- Relative number switcher
+    "sitiom/nvim-numbertoggle",
+    -- -- --
+
+    -- Indent highlight
     {
         "lukas-reineke/indent-blankline.nvim",
         config = function()
@@ -49,7 +55,7 @@ return {
             vim.cmd [[highlight IndentBlanklineIndent2 guibg=#282a36 gui=nocombine]]
             vim.cmd [[highlight IndentBlanklineIndent3 guibg=#22242e gui=nocombine]]
 
-            require("indent_blankline").setup ({
+            require("indent_blankline").setup({
                 space_char_blankline = " ",
                 show_current_context = true,
                 show_current_context_start = true,
@@ -107,7 +113,7 @@ return {
     "tpope/vim-abolish",
     -- -- --
 
-    -- Comnent
+    -- Comment
     {
         "numToStr/Comment.nvim",
         config = function()
@@ -130,7 +136,7 @@ return {
     'folke/neodev.nvim',
     -- -- --
 
-    -- code complition
+    -- code completion
     {
         'hrsh7th/nvim-cmp',
         dependencies = {

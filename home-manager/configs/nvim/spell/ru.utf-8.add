@@ -12,3 +12,7 @@ inheritdoc
 intrant
 ctrl
 hjkl
+Utils
+Nvim
+LSP
+UI
