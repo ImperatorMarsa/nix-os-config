@@ -8,6 +8,7 @@
     ./fish/fish.nix
     ./nvim/nvim.nix
     ./zoxide/zoxide.nix
+    ./kakoune/kakoune.nix
     ./firefox/firefox.nix
     ./lazygit/lazygit.nix
   ];
