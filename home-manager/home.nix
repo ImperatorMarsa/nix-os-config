@@ -6,16 +6,18 @@
   # manage.
 
   # Lang
-  home.language = let
+  home.language =
+    let
       en = "en_US.UTF-8";
       ru = "ru_RU.UTF-8";
-  in {
-      base     = en;
-      time     = en;
-      paper    = ru;
-      address  = ru;
+    in
+    {
+      base = en;
+      time = en;
+      paper = ru;
+      address = ru;
       monetary = ru;
-  };
+    };
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
@@ -102,6 +104,7 @@
     # desktop
     pkgs.waybar
     pkgs.wezterm
+    pkgs.neovide
     pkgs.swaylock
     pkgs.xfce.thunar
     pkgs.rofi-wayland
@@ -136,13 +139,13 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    ".vimrc".source                = ./configs/vim/vimrc;
-    ".config/lsd".source           = ./configs/lsd;
-    ".config/rofi".source          = ./configs/rofi;
-    ".config/sway".source          = ./configs/sway;
-    ".config/waybar".source        = ./configs/waybar;
-    ".config/wezterm".source       = ./configs/wezterm;
-    ".config/swaylock".source      = ./configs/swaylock;
+    ".vimrc".source = ./configs/vim/vimrc;
+    ".config/lsd".source = ./configs/lsd;
+    ".config/rofi".source = ./configs/rofi;
+    ".config/sway".source = ./configs/sway;
+    ".config/waybar".source = ./configs/waybar;
+    ".config/wezterm".source = ./configs/wezterm;
+    ".config/swaylock".source = ./configs/swaylock;
   };
 
 

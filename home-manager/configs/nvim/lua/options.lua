@@ -109,3 +109,9 @@ vim.opt.grepprg = 'rg --vimgrep'
 
 -- Force English locale
 vim.cmd.language('en_US.utf8')
+
+-- GUI NeovIde
+if vim.g.neovide then
+    require "neovide_options"
+end
+-- -- --
