@@ -15,7 +15,7 @@ wezterm.on('update-right-status', function(window, pane)
     })
 end)
 
-return {
+local config = {
     -- Set color
     color_scheme = "Dracula (Official)",
     colors = { selection_bg = 'rgba(189 147 249 73%)' },
@@ -43,7 +43,6 @@ return {
     font = wezterm.font("JetBrainsMono Nerd Font Mono"),
     tab_bar_at_bottom = true,
     use_fancy_tab_bar = false,
-    window_decorations = "RESIZE",
     hide_tab_bar_if_only_one_tab = true,
     pane_focus_follows_mouse = true,
     window_close_confirmation = 'NeverPrompt',
@@ -57,10 +56,11 @@ return {
 
     skip_close_confirmation_for_processes_named = {
         'bash',
-        'sh',
-        'zsh',
         'fish',
+        'pwsh',
+        'sh',
         'tmux',
+        'zsh',
     },
     keys = {
         {
@@ -80,3 +80,12 @@ return {
         },
     }
 }
+
+if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
+    -- config.default_domain = "WSL:nix";
+    config.default_prog = { 'pwsh' };
+else
+    config.window_decorations = "RESIZE";
+end
+
+return config;
