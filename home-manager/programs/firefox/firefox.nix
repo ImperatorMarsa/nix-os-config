@@ -29,6 +29,12 @@
           "gfx.webrender.all"          = true;
           "media.ffmpeg.vaapi.enabled" = true;
 
+          # DraculaTheme recomendation
+          "svg.context-properties.content.enabled" = true;
+          "layout.css.color-mix.enabled"           = true;
+          "browser.tabs.tabClipWidth"              = 86;
+          "browser.tabs.tabMinWidth"               = 66;
+
           # Enable HTTPS-Only Mode
           "dom.security.https_only_mode"              = true;
           "dom.security.https_only_mode_ever_enabled" = true;
