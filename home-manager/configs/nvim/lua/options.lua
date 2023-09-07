@@ -73,7 +73,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- foldings
-vim.opt.foldmethod = "syntax"
+vim.opt.foldmethod = "indent"
 vim.cmd('set nofoldenable')
 vim.opt.foldlevel = 99
 
