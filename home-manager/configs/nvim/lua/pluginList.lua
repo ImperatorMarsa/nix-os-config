@@ -157,9 +157,7 @@ return {
     -- -- --
 
     -- Git integration
-    "NeogitOrg/neogit",
     "lewis6991/gitsigns.nvim",
-    "sindrets/diffview.nvim",
     -- -- --
 
     -- tree sitter
