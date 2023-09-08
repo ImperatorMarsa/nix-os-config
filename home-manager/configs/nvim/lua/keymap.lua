@@ -47,31 +47,31 @@ KeyMap('v', '<A-x>', '"+x')
 KeyMap('v', '<A-y>', '"+y')
 
 -- telescope general
-local builtin = require('telescope.builtin')
-KeyMap(
-    'n',
-    '<leader>ff',
-    function()
-        builtin.find_files(
-            require('telescope.themes').get_ivy({ winblend = 10 })
-        )
-    end,
-    {}
-)
-KeyMap('n', '<leader>fg', builtin.live_grep, {})
-KeyMap('n', '<leader>fb', builtin.buffers, {})
-KeyMap('n', '<leader>fh', builtin.help_tags, {})
-KeyMap('n', '<leader>fj', builtin.jumplist, {})
-KeyMap(
-    'n',
-    '<leader>fS',
-    function()
-        builtin.spell_suggest(
-            require('telescope.themes').get_cursor()
-        )
-    end,
-    {}
-)
+-- local builtin = require('telescope.builtin')
+-- KeyMap(
+--     'n',
+--     '<leader>ff',
+--     function()
+--         builtin.find_files(
+--             require('telescope.themes').get_ivy({ winblend = 10 })
+--         )
+--     end,
+--     {}
+-- )
+-- KeyMap('n', '<leader>fg', builtin.live_grep, {})
+-- KeyMap('n', '<leader>fb', builtin.buffers, {})
+-- KeyMap('n', '<leader>fh', builtin.help_tags, {})
+-- KeyMap('n', '<leader>fj', builtin.jumplist, {})
+-- KeyMap(
+--     'n',
+--     '<leader>fS',
+--     function()
+--         builtin.spell_suggest(
+--             require('telescope.themes').get_cursor()
+--         )
+--     end,
+--     {}
+-- )
 
 -- Don't jump when using *
 KeyMap("n", "*", "*<C-o>", opts)
