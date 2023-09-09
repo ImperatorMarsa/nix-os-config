@@ -7,9 +7,19 @@ return {
     end,
     keys = {
         {
+            "<leader>er",
+            "<cmd> NvimTreeRefresh <CR>",
+            desc = "Refresh nvimtree",
+        },
+        {
+            "<leader>ef",
+            "<cmd> NvimTreeFocus <CR>",
+            desc = "Focus nvimtree",
+        },
+        {
             "<leader>e",
             "<cmd> NvimTreeFindFileToggle <CR>",
-            desc = "Focus nvimtree",
+            desc = "Open nvimtree",
         },
     },
 }
