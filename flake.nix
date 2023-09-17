@@ -34,8 +34,10 @@
         # > Our main nixos configuration file <
         modules = [
           # nixos-hardware.nixosModules.lenovo-thinkpad-x220
-          ./nixos/think-configuration.nix
+          ./nixos/thinkpad/configuration.nix
+          ./nixos/nix-settings.nix
           ./nixos/locale.nix
+          ./nixos/fonts.nix
         ];
       };
     };

@@ -37,29 +37,6 @@
     };
   };
 
-  nix = {
-    # This will add each flake input as a registry
-    # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
-
-    # This will additionally add your inputs to the system's legacy channels
-    # Making legacy nix commands consistent as well, awesome!
-    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
-
-    settings = {
-      # Enable flakes and new 'nix' command
-      experimental-features = "nix-command flakes";
-      # Deduplicate and optimize nix store
-      auto-optimise-store = true;
-    };
-
-    gc = {
-      dates = "weekly";
-      automatic = true;
-      options = "--delete-older-than 8d";
-    };
-  };
-
   # FIXME: Add the rest of your current configuration
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -101,7 +78,7 @@
     isNormalUser = true;
     description = "Timofey";
     extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
     openssh.authorizedKeys.keys = [
       # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
     ];
@@ -128,21 +105,6 @@
   #   enableSSHSupport = true;
   # };
 
-  fonts = {
-    enableDefaultFonts = true;
-    fonts = with pkgs; [ 
-      font-awesome
-      jetbrains-mono
-    ];
-
-    fontconfig = {
-      defaultFonts = {
-        serif = [ "JetBrainsMono" ];
-        sansSerif = [ "JetBrainsMono" ];
-        monospace = [ "JetBrainsMono" ];
-      };
-    };
-  };
 
   security.polkit.enable = true;
 
