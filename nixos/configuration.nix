@@ -13,7 +13,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     # <nixos-hardware/lenovo/thinkpad/x220>
-    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x220
+    # inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x220
     ./hardware-configuration.nix
   ];
 
@@ -64,7 +64,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  #__ boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   # Setup keyfile
   boot.initrd.secrets = {

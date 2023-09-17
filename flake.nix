@@ -14,7 +14,7 @@
     nur.inputs.nixpkgs.follows = "nixpkgs";
 
     # Hardware support
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
@@ -33,7 +33,7 @@
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         # > Our main nixos configuration file <
         modules = [
-          nixos-hardware.nixosModules.lenovo-thinkpad-x220
+          # nixos-hardware.nixosModules.lenovo-thinkpad-x220
           ./nixos/configuration.nix
         ];
       };
