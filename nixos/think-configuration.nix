@@ -91,24 +91,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
-  time.timeZone = "Europe/Moscow";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_NAME           = "ru_RU.UTF-8";
-    LC_TIME           = "ru_RU.UTF-8";
-    LC_PAPER          = "ru_RU.UTF-8";
-    LC_NUMERIC        = "ru_RU.UTF-8";
-    LC_ADDRESS        = "ru_RU.UTF-8";
-    LC_MONETARY       = "ru_RU.UTF-8";
-    LC_TELEPHONE      = "ru_RU.UTF-8";
-    LC_MEASUREMENT    = "ru_RU.UTF-8";
-    LC_IDENTIFICATION = "ru_RU.UTF-8";
-  };
-
   programs.fish.enable = true;
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users.timofey = {
@@ -196,12 +178,6 @@
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
     jack.enable = true;
-  };
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
   };
 
   # Fingerptint reader setings
