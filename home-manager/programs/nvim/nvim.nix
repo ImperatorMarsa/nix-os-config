@@ -35,7 +35,6 @@ in
     "${config.xdg.configHome}/nvim/after".source = ./config/after;
     "${config.xdg.configHome}/nvim/lua".source = ./config/lua;
     "${config.xdg.configHome}/nvim/init.lua".source = ./config/init.lua;
-    "${config.xdg.configHome}/nvim/lazy-lock.json".source = ./config/lazy-lock.json;
     "${config.xdg.configHome}/nvim/spell/ru.utf-8.spl".source = nvim-spell-ru-utf8-dictionary;
     "${config.xdg.configHome}/nvim/spell/ru.utf-8.sug".source = nvim-spell-ru-utf8-suggestions;
     "${config.xdg.configHome}/nvim/spell/en.utf-8.spl".source = nvim-spell-en-utf8-dictionary;
