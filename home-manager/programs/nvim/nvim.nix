@@ -21,16 +21,24 @@ in
 {
   programs.neovim = {
     enable = true;
-    plugins = [ pkgs.vimPlugins.packer-nvim ];
-    #__ extraPackages = with pkgs; [
-    #__   sumneko-lua-language-server
-    #__   nodePackages.prettier
-    #__   tree-sitter
-    #__ ] ++ pkgs.tree-sitter.allGrammars;
+    extraPackages = with pkgs; [
+      cargo
+      clang
+      luajitPackages.luarocks-nix
+      luarocks
+      nodejs
+      unzip
+    ];
   };
 
-  home.file."${config.xdg.configHome}/nvim/spell/ru.utf-8.spl".source = nvim-spell-ru-utf8-dictionary;
-  home.file."${config.xdg.configHome}/nvim/spell/ru.utf-8.sug".source = nvim-spell-ru-utf8-suggestions;
-  home.file."${config.xdg.configHome}/nvim/spell/en.utf-8.spl".source = nvim-spell-en-utf8-dictionary;
-  home.file."${config.xdg.configHome}/nvim/spell/en.utf-8.sug".source = nvim-spell-en-utf8-suggestions;
+  home.file = {
+    "${config.xdg.configHome}/nvim/after".source = ./config/after;
+    "${config.xdg.configHome}/nvim/lua".source = ./config/lua;
+    "${config.xdg.configHome}/nvim/init.lua".source = ./config/init.lua;
+    "${config.xdg.configHome}/nvim/lazy-lock.json".source = ./config/lazy-lock.json;
+    "${config.xdg.configHome}/nvim/spell/ru.utf-8.spl".source = nvim-spell-ru-utf8-dictionary;
+    "${config.xdg.configHome}/nvim/spell/ru.utf-8.sug".source = nvim-spell-ru-utf8-suggestions;
+    "${config.xdg.configHome}/nvim/spell/en.utf-8.spl".source = nvim-spell-en-utf8-dictionary;
+    "${config.xdg.configHome}/nvim/spell/en.utf-8.sug".source = nvim-spell-en-utf8-suggestions;
+  };
 }

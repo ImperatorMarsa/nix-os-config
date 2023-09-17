@@ -99,7 +99,6 @@
     pkgs.dracula-theme
     pkgs.pulseaudioFull
     pkgs.dracula-icon-theme
-    pkgs.luajitPackages.luarocks-nix
 
     # desktop
     pkgs.waybar

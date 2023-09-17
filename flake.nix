@@ -52,6 +52,7 @@
         # > Our main home-manager configuration file <
         modules = [
           ./home-manager/home.nix
+          ./home-manager/programs/nvim/nvim.nix
         ];
       };
     };
