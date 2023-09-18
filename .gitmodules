@@ -3,4 +3,4 @@
 	url = ssh://git@github.com:ImperatorMarsa/nvim-config.git
 [submodule "home-manager/wallpapers"]
 	path = home-manager/wallpapers
-	url = ssh://git@github.com:ImperatorMarsa/wallpapers.git
+	url = https://github.com/ImperatorMarsa/wallpapers.git
