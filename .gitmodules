@@ -1,6 +1,6 @@
 [submodule "home-manager/programs/nvim/config"]
 	path = home-manager/programs/nvim/config
-	url = ssh://git@github.com:ImperatorMarsa/nvim-config.git
+	url = https://github.com/ImperatorMarsa/nvim-config.git
 [submodule "home-manager/wallpapers"]
 	path = home-manager/wallpapers
 	url = https://github.com/ImperatorMarsa/wallpapers.git
